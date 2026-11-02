@@ -210,7 +210,11 @@ class Module extends AbstractModule
         ];
 
         $entityId = $resource->id();
-        $entityName = $resourceNames[get_class($resource)] ?? $resourceNames[$resource->getJsonLdType()] ?? null;
+        // A resource knows its api name, so the resource types added by modules
+        // are managed too. Furthermore, the json-ld type may be an array when
+        // the resource has a class, so it cannot be used as an array key.
+        $entityName = $resourceNames[get_class($resource)]
+            ?? (method_exists($resource, 'resourceName') ? $resource->resourceName() : null);
         if (!$entityId || !$entityName) {
             return;
         }
