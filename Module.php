@@ -435,6 +435,13 @@ class Module extends AbstractModule
 
     public function contentLockingOnSave(Event $event): void
     {
+        // Do nothing on a dry run (for example the validation of a contribution
+        // by module Contribute): the resource is not persisted, so the content
+        // lock must not be removed nor the entity manager flushed.
+        if ($event->getParam('request')?->getOption('validateOnly')) {
+            return;
+        }
+
         /**
          * @var \Laminas\ServiceManager\ServiceLocatorInterface $services
          * @var \Omeka\Entity\User $user
