@@ -120,6 +120,22 @@ class Module extends AbstractModule
             [$this, 'contentLockingOnSave']
         );
 
+        $sharedEventManager->attach(
+            \Omeka\Api\Adapter\ItemAdapter::class,
+            'api.update.post',
+            [$this, 'contentLockingOnSave']
+        );
+        $sharedEventManager->attach(
+            \Omeka\Api\Adapter\ItemSetAdapter::class,
+            'api.update.post',
+            [$this, 'contentLockingOnSave']
+        );
+        $sharedEventManager->attach(
+            \Omeka\Api\Adapter\MediaAdapter::class,
+            'api.update.post',
+            [$this, 'contentLockingOnSave']
+        );
+
         // There is no good event for deletion. So either js on layout, either
         // view.details and js, eiher override confirm form and/or delete confirm
         // to add elements or add a trigger in delete-confirm-details.
@@ -463,6 +479,7 @@ class Module extends AbstractModule
             return;
         }
 
+        $eventName = $event->getName();
         $request = $event->getParam('request');
 
         $entityId = $request->getId();
@@ -484,9 +501,19 @@ class Module extends AbstractModule
         $user = $services->get('Omeka\AuthenticationService')->getIdentity();
         $contentLockUser = $contentLock->getUser();
         if ($user->getId() === $contentLockUser->getId()) {
-            // The content lock won't be removed in case of a validation
-            // exception.
-            $entityManager->remove($contentLock);
+            if ($eventName === 'api.update.pre') {
+                // The content lock won't be removed in case of a validation
+                // exception.
+                $entityManager->remove($contentLock);
+            } elseif ($eventName === 'api.update.post') {
+                // The content lock is normally automatically removed during
+                // hydration of the main entity, except during batch update, or
+                // when option "flushEntityManager" is set to false. If an issue
+                // occurred during execution, this event is not triggered
+                // anyway.
+                $entityManager->remove($contentLock);
+                $entityManager->flush();
+            }
             return;
         }
 
