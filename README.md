@@ -5,7 +5,7 @@ Lock Edit (module for Omeka S)
 > are available on [GitLab], which seems to respect users and privacy better
 > than the previous repository.__
 
-[Lock Edit ] is a module for [Omeka S] that warns automatically when another
+[Lock Edit] is a module for [Omeka S] that warns automatically when another
 user is editing a resource to avoid concurrent edition.
 
 
@@ -50,6 +50,14 @@ settings.
 
 In some cases, it is useful to disable the mechanism temporary, so a setting
 allows it.
+
+The locks apply to items, item sets and media. A user who is allowed to edit the
+resource can bypass the lock of another user with a checkbox in the edit form
+and in the confirmation of deletion, for example when the other user left
+without saving.
+
+When the module [Easy Admin] is installed, a task allows to list or to remove
+the content locks older than a number of hours, optionally for some users only.
 
 
 TODO
@@ -115,7 +123,7 @@ digital library [Numistral].
 [Lock Edit]: https://gitlab.com/Daniel-KM/Omeka-S-module-LockEdit
 [Omeka S]: https://omeka.org/s
 [installing a module]: https://omeka.org/s/docs/user-manual/modules/
-[LockEdit.zip]: https://github.com/Daniel-KM/Omeka-S-module-LockEdit/releases
+[LockEdit.zip]: https://gitlab.com/Daniel-KM/Omeka-S-module-LockEdit/-/releases
 [module issues]: https://gitlab.com/Daniel-KM/Omeka-S-module-LockEdit/issues
 [Common]: https://gitlab.com/Daniel-KM/Omeka-S-module-Common
 [Content Lock]: https://www.drupal.org/project/content_lock
