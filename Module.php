@@ -259,10 +259,10 @@ class Module extends AbstractModule
                     $entityManager->remove($contentLock);
                     $contentLock = $entityManager->getRepository(ContentLock::class)
                         ->findOneBy(['entityId' => $entityId, 'entityName' => $entityName]);
-                } catch (\Exception $e) {
+                } catch (\Throwable $e) {
                     return;
                 }
-            } catch (\Exception $e) {
+            } catch (\Throwable $e) {
                 // No content lock when there is an issue.
                 $entityManager->remove($contentLock);
                 return;
