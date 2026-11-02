@@ -73,11 +73,11 @@ class Module extends AbstractModule
 
         // If present, EasyAdmin should be at least 3.4.31.
         if ($this->isModuleActive('EasyAdmin')
-            && !$this->checkModuleActiveVersion('EasyAdmin', '3.4.31')
+            && !$this->checkModuleActiveVersion('EasyAdmin', '3.4.46')
         ) {
             $message = new PsrMessage(
                 $translator->translate('The module {module} is installed. For compatibility with this module, upgrade it first to version {version} or greater.'), // @translate
-                ['module' => 'Easy Admin', 'version' => '3.4.31']
+                ['module' => 'Easy Admin', 'version' => '3.4.46']
             );
             throw new \Omeka\Module\Exception\ModuleCannotInstallException((string) $message);
         }
@@ -681,6 +681,18 @@ class Module extends AbstractModule
         $valueOptions['lockedit_db_content_lock_check'] = 'Lock Edit: Check existing content locks'; // @translate
         $valueOptions['lockedit_db_content_lock_clean'] = 'Lock Edit: Remove existing content locks'; // @translate
         $process->setValueOptions($valueOptions);
+
+        $form
+            ->addTaskSubjects([
+                'lockedit_db_content_lock' => [
+                    'name' => 'Content locks: Clear locks', // @translate
+                    'description' => 'Content locks left by interrupted edit sessions.', // @translate
+                    'actions' => [
+                        'lockedit_db_content_lock_check' => 'Check', // @translate
+                        'lockedit_db_content_lock_clean' => 'Remove', // @translate
+                    ],
+                ],
+            ]);
 
         $fieldset
             ->add([
