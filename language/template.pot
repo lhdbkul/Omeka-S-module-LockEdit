@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-02 00:00+0000\n"
+"POT-Creation-Date: 2026-11-02 00:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,88 +17,112 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: data/scripts/upgrade.php:39 Module.php:68
+#: data/scripts/upgrade.php:40 Module.php:83
 #, php-format
 msgid "The module %1$s should be upgraded to version %2$s or later."
 msgstr ""
 
-#: Module.php:79
+#: data/scripts/upgrade.php:44
+msgid "Missing requirement. Unable to upgrade."
+msgstr ""
+
+#: Module.php:94
 msgid ""
 "The module {module} is installed. For compatibility with this module, "
 "upgrade it first to version {version} or greater."
 msgstr ""
 
-#: Module.php:259
+#: Module.php:352
+msgid "Bypass the lock"
+msgstr ""
+
+#: data/scripts/upgrade.php:58
+msgid ""
+"The setting \"Disable content locking\" had inverted logic in previous "
+"versions and has been fixed. The value has been automatically inverted to "
+"preserve your existing behavior. Please verify the setting in module "
+"configuration."
+msgstr ""
+
+#: Module.php:298
 msgid "You edit already this resource somewhere since {date}."
 msgstr ""
 
-#: Module.php:286 Module.php:423 Module.php:510 Module.php:616
+#: Module.php:325 Module.php:466 Module.php:571 Module.php:677
 msgid ""
 "This content is being edited by the user {user_name} and is therefore locked "
 "to prevent other users changes. This lock is in place since {date}."
 msgstr ""
 
-#: Module.php:313 Module.php:429
-msgid "Bypass the lock"
-msgstr ""
-
-#: Module.php:414
+#: Module.php:457
 msgid "Warning:"
 msgstr ""
 
-#: Module.php:417
+#: Module.php:460
 msgid "You edit this resource somewhere since {date}."
 msgstr ""
 
-#: Module.php:484
+#: Module.php:545
 msgid ""
 "The lock in place since {date} has been bypassed, but the user {user_name} "
 "can override it on save."
 msgstr ""
 
-#: Module.php:496
+#: Module.php:557
 msgid ""
 "User {user} (#{userid}) tried to save {resource_name} #{resource_id} edited "
 "by the user {user_name} (#{user_id}) since {date}."
 msgstr ""
 
-#: Module.php:569
+#: Module.php:630
 msgid "You removed the resource you are editing somewhere since {date}."
 msgstr ""
 
-#: Module.php:588
+#: Module.php:649
 msgid ""
 "You removed a resource currently locked in edition by {user_name} since "
 "{date}."
 msgstr ""
 
-#: Module.php:602
+#: Module.php:663
 msgid ""
 "User {user} (#{userid}) tried to delete {resource_name} #{resource_id} "
 "edited by the user {user_name} (#{user_id}) since {date}."
 msgstr ""
 
-#: Module.php:639
+#: Module.php:700
 msgid "Lock Edit: Check existing content locks"
 msgstr ""
 
-#: Module.php:640
+#: Module.php:701
 msgid "Lock Edit: Remove existing content locks"
 msgstr ""
 
-#: Module.php:648
+#: Module.php:707
+msgid "Content locks: Clear locks"
+msgstr ""
+
+#: Module.php:708
+msgid "Content locks left by interrupted edit sessions."
+msgstr ""
+
+#: Module.php:710
+msgid "Check"
+msgstr ""
+
+#: Module.php:721
 msgid "Options to remove content locks"
 msgstr ""
 
-#: Module.php:659
+#: Module.php:732
 msgid "Older than this number of hours"
 msgstr ""
 
-#: Module.php:669
+#: Module.php:742
 msgid "Belonging to these users"
 msgstr ""
 
-#: Module.php:677
+#: Module.php:750
 msgid "Select users…"
 msgstr ""
 
@@ -129,14 +153,14 @@ msgstr ""
 msgid "{count} content locks older than {hours} hours were removed."
 msgstr ""
 
-#: src/Form/SettingsFieldset.php:10 src/Form/SettingsFieldset.php:13
+#: src/Form/SettingsFieldset.php:10
 msgid "Lock Edit"
 msgstr ""
 
-#: src/Form/SettingsFieldset.php:27
+#: src/Form/SettingsFieldset.php:22
 msgid "Disable content lock to allow concurrent editing"
 msgstr ""
 
-#: src/Form/SettingsFieldset.php:38
+#: src/Form/SettingsFieldset.php:33
 msgid "Number of seconds before automatic removing of the lock"
 msgstr ""

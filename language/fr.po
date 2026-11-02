@@ -7,22 +7,26 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-02 00:00+0000\n"
-"PO-Revision-Date: 2025-06-02 00:00+0000\n"
+"POT-Creation-Date: 2026-11-02 00:00+0000\n"
+"PO-Revision-Date: 2026-11-02 00:00+0000\n"
 "Last-Translator: Daniel Berthereau <Daniel.fr@Berthereau.net>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.6\n"
 
-#: data/scripts/upgrade.php:39 Module.php:68
+#: data/scripts/upgrade.php:40 Module.php:83
 #, php-format
 msgid "The module %1$s should be upgraded to version %2$s or later."
 msgstr "Le module %1$s doit être mis à niveau à la version %2$s ou supérieure."
 
-#: Module.php:79
+#: data/scripts/upgrade.php:44
+msgid "Missing requirement. Unable to upgrade."
+msgstr "Pré-requis absent. Impossible de mettre à jour."
+
+#: Module.php:94
 msgid ""
 "The module {module} is installed. For compatibility with this module, "
 "upgrade it first to version {version} or greater."
@@ -30,11 +34,27 @@ msgstr ""
 "Le module {module} est installé. Pour la compatibilité avec ce module, il "
 "convient de le mettre à jour d’'abord à la version {version} ou supérieure."
 
-#: Module.php:259
+#: Module.php:352
+msgid "Bypass the lock"
+msgstr "Ignorer le verrou"
+
+#: data/scripts/upgrade.php:58
+msgid ""
+"The setting \"Disable content locking\" had inverted logic in previous "
+"versions and has been fixed. The value has been automatically inverted to "
+"preserve your existing behavior. Please verify the setting in module "
+"configuration."
+msgstr ""
+"Le paramètre \"Désactiver les verrous\" a une logique inversée par rapport "
+"aux versions précédentes et a été corrigé. La valeur a été automatiquement "
+"inversée pour conserver le comportement existant. Merci de vérifier le "
+"paramètre dans la configuration du module."
+
+#: Module.php:298
 msgid "You edit already this resource somewhere since {date}."
 msgstr "Vous éditez déjà cette ressource quelque part depuis le {date}."
 
-#: Module.php:286 Module.php:423 Module.php:510 Module.php:616
+#: Module.php:325 Module.php:466 Module.php:571 Module.php:677
 msgid ""
 "This content is being edited by the user {user_name} and is therefore locked "
 "to prevent other users changes. This lock is in place since {date}."
@@ -43,19 +63,15 @@ msgstr ""
 "verrouillé pour empêcher les modifications d’autres utilisateurs. Ce verrou "
 "est en place depuis le {date}."
 
-#: Module.php:313 Module.php:429
-msgid "Bypass the lock"
-msgstr "Ignorer le verrou"
-
-#: Module.php:414
+#: Module.php:457
 msgid "Warning:"
 msgstr "Attention :"
 
-#: Module.php:417
+#: Module.php:460
 msgid "You edit this resource somewhere since {date}."
 msgstr "Vous éditez cette ressource quelque part depuis le {date}."
 
-#: Module.php:484
+#: Module.php:545
 msgid ""
 "The lock in place since {date} has been bypassed, but the user {user_name} "
 "can override it on save."
@@ -63,7 +79,7 @@ msgstr ""
 "Le verrou en place depuis le {date} a été ignoré, mais l’utilisateur "
 "{user_name} peut finir sa propre édition."
 
-#: Module.php:496
+#: Module.php:557
 msgid ""
 "User {user} (#{userid}) tried to save {resource_name} #{resource_id} edited "
 "by the user {user_name} (#{user_id}) since {date}."
@@ -72,13 +88,13 @@ msgstr ""
 "#{resource_id} éditée par l’utilisateur {user_name} (#{user_id}) depuis le "
 "{date}."
 
-#: Module.php:569
+#: Module.php:630
 msgid "You removed the resource you are editing somewhere since {date}."
 msgstr ""
 "Vous avez supprimé la ressource que vous éditiez quelque part depuis le "
 "{date}."
 
-#: Module.php:588
+#: Module.php:649
 msgid ""
 "You removed a resource currently locked in edition by {user_name} since "
 "{date}."
@@ -86,7 +102,7 @@ msgstr ""
 "Vous avez supprimé une ressource verrouillée en édition par {user_name} "
 "depuis le {date}."
 
-#: Module.php:602
+#: Module.php:663
 msgid ""
 "User {user} (#{userid}) tried to delete {resource_name} #{resource_id} "
 "edited by the user {user_name} (#{user_id}) since {date}."
@@ -95,27 +111,39 @@ msgstr ""
 "#{resource_id} éditée par l’utilisateur {user_name} (#{user_id}) depuis le "
 "{date}."
 
-#: Module.php:639
+#: Module.php:700
 msgid "Lock Edit: Check existing content locks"
 msgstr "Verrou d’édition : Vérifier les verrous existants"
 
-#: Module.php:640
+#: Module.php:701
 msgid "Lock Edit: Remove existing content locks"
 msgstr "Verrou d’édition : Supprimer les verrous existants"
 
-#: Module.php:648
+#: Module.php:707
+msgid "Content locks: Clear locks"
+msgstr "Verrous d’édition : Supprimer les verrous"
+
+#: Module.php:708
+msgid "Content locks left by interrupted edit sessions."
+msgstr "Verrous d’édition laissés par des sessions interrompues."
+
+#: Module.php:710
+msgid "Check"
+msgstr "Vérification"
+
+#: Module.php:721
 msgid "Options to remove content locks"
 msgstr "Options pour supprimer les verrous des contenus"
 
-#: Module.php:659
+#: Module.php:732
 msgid "Older than this number of hours"
 msgstr "Plus anciens que ce nombre d’heures"
 
-#: Module.php:669
+#: Module.php:742
 msgid "Belonging to these users"
 msgstr "Appartenant à ces utilisateurs"
 
-#: Module.php:677
+#: Module.php:750
 msgid "Select users…"
 msgstr "Choisir les utilisateurs…"
 
@@ -151,16 +179,16 @@ msgid "{count} content locks older than {hours} hours were removed."
 msgstr ""
 "{count} verrous d’édition plus anciens que {hours} heures ont été supprimés."
 
-#: src/Form/SettingsFieldset.php:10 src/Form/SettingsFieldset.php:13
+#: src/Form/SettingsFieldset.php:10
 msgid "Lock Edit"
 msgstr "Verrou d’édition"
 
-#: src/Form/SettingsFieldset.php:27
+#: src/Form/SettingsFieldset.php:22
 msgid "Disable content lock to allow concurrent editing"
 msgstr ""
 "Désactiver les verrous d’édition pour permettre les modifications simultanées"
 
-#: src/Form/SettingsFieldset.php:38
+#: src/Form/SettingsFieldset.php:33
 msgid "Number of seconds before automatic removing of the lock"
 msgstr "Nombre de secondes avant suppression automatique du verrou"
 
@@ -726,8 +754,8 @@ msgstr "Nombre de secondes avant suppression automatique du verrou"
 #~ "« {asset_filename} » (#{asset_id}): {errors}"
 
 #~ msgid ""
-#~ "An error occurred when optimizing asset "
-#~ "\"{asset_filename}\" (#{asset_id}): {error}"
+#~ "An error occurred when optimizing asset \"{asset_filename}\" "
+#~ "(#{asset_id}): {error}"
 #~ msgstr ""
 #~ "Une erreur est survenue lors de l’optimisation du fichier "
 #~ "« {asset_filename} » (#{asset_id}): {error}"
@@ -743,8 +771,8 @@ msgstr "Nombre de secondes avant suppression automatique du verrou"
 #~ "The asset \"{asset_filename}\" (#{asset_id}) has been successfully "
 #~ "optimized by {percent}%, from {size_1} to {size_2} bytes."
 #~ msgstr ""
-#~ "Le fichier « {asset_filename} » (#{asset_id}) a été optimisé de "
-#~ "{percent}%, de {size_1} à {size_2} octets."
+#~ "Le fichier « {asset_filename} » (#{asset_id}) a été optimisé de {percent}"
+#~ "%, de {size_1} à {size_2} octets."
 
 #~ msgid "Unable to fetch the url {url}."
 #~ msgstr "Impossible de charger l’url {url}."
@@ -899,30 +927,29 @@ msgstr "Nombre de secondes avant suppression automatique du verrou"
 #~ "Media #{media_id} ({processed}/{total}): original file \"{filename}\" "
 #~ "updated with {type} = {real_value} (was {old_value})."
 #~ msgstr ""
-#~ "Média #{media_id} ({processed}/{total}) : le fichier original "
-#~ "\"{filename}\" a été mis à jour avec {type} = {real_value} (était "
-#~ "{old_value})."
+#~ "Média #{media_id} ({processed}/{total}) : le fichier original \"{filename}"
+#~ "\" a été mis à jour avec {type} = {real_value} (était {old_value})."
 
 #~ msgid ""
 #~ "Media #{media_id} ({processed}/{total}): original file \"{filename}\" has "
 #~ "no {type}, but should be {real_value}."
 #~ msgstr ""
-#~ "Média #{media_id} ({processed}/{total}) : le fichier original "
-#~ "\"{filename}\" n’a pas de {type}, mais devrait être {real_value}."
+#~ "Média #{media_id} ({processed}/{total}) : le fichier original \"{filename}"
+#~ "\" n’a pas de {type}, mais devrait être {real_value}."
 
 #~ msgid ""
 #~ "Media #{media_id} ({processed}/{total}): original file \"{filename}\" has "
 #~ "a different {type}: {db_value} ≠ {real_value}."
 #~ msgstr ""
-#~ "Média #{media_id} ({processed}/{total}) : le fichier original "
-#~ "\"{filename}\" a un {type} différent : {db_value} ≠ {real_value}."
+#~ "Média #{media_id} ({processed}/{total}) : le fichier original \"{filename}"
+#~ "\" a un {type} différent : {db_value} ≠ {real_value}."
 
 #~ msgid ""
 #~ "Media #{media_id} ({processed}/{total}): original file \"{filename}\" "
 #~ "does not exist."
 #~ msgstr ""
-#~ "Média #{media_id} ({processed}/{total}) : le fichier original "
-#~ "\"{filename}\" n’existe pas."
+#~ "Média #{media_id} ({processed}/{total}) : le fichier original \"{filename}"
+#~ "\" n’existe pas."
 
 #~ msgid ""
 #~ "End of process: {processed}/{total} processed, {total_succeed} succeed, "
@@ -996,8 +1023,8 @@ msgstr "Nombre de secondes avant suppression automatique du verrou"
 #~ "vide."
 
 #~ msgid ""
-#~ "Title for resource \"{resource_type}\" #{resource_id} should be "
-#~ "\"{title}\"."
+#~ "Title for resource \"{resource_type}\" #{resource_id} should be \"{title}"
+#~ "\"."
 #~ msgstr ""
 #~ "Le titre pour la ressource \"{resource_type}\" #{resource_id} devrait "
 #~ "être \"{title}\"."
@@ -1016,9 +1043,6 @@ msgstr "Nombre de secondes avant suppression automatique du verrou"
 
 #~ msgid "Value id"
 #~ msgstr "Id \"value\""
-
-#~ msgid "Content"
-#~ msgstr "Contenu"
 
 #~ msgid "You should specify the types of records to check or fix."
 #~ msgstr ""
@@ -1059,8 +1083,8 @@ msgstr "Nombre de secondes avant suppression automatique du verrou"
 #~ "size: {total_size} bytes, compressed: {size} bytes ({ratio}%)."
 #~ msgstr ""
 #~ "Sauvegarde créée avec succès : {total_dirs} dossiers, {total_files} "
-#~ "fichiers, taille : {total_size} octets, compressé : {size} octets "
-#~ "({ratio}%)."
+#~ "fichiers, taille : {total_size} octets, compressé : {size} octets ({ratio}"
+#~ "%)."
 
 #~ msgid "A minimum number of days is needed to clean sessions."
 #~ msgstr ""
@@ -1074,8 +1098,8 @@ msgstr "Nombre de secondes avant suppression automatique du verrou"
 #~ "enregistrements sont plus vieux que {days} jours."
 
 #~ msgid ""
-#~ "{count} records older than {days} days were removed. The table "
-#~ "\"{table}\" has a size of {size} MB."
+#~ "{count} records older than {days} days were removed. The table \"{table}"
+#~ "\" has a size of {size} MB."
 #~ msgstr ""
 #~ "{count} enregistrements plus anciens que {days} jours ont été supprimés. "
 #~ "La table \"{table}\" a une taille de {size} Mo."
@@ -1116,9 +1140,8 @@ msgstr "Nombre de secondes avant suppression automatique du verrou"
 #~ "inférieure ou égal à \"{severity}\"."
 
 #~ msgid ""
-#~ "{count} records older than {days} days with maximum severity "
-#~ "\"{severity}\" were removed. The table \"{table}\" has a size of {size} "
-#~ "MB."
+#~ "{count} records older than {days} days with maximum severity \"{severity}"
+#~ "\" were removed. The table \"{table}\" has a size of {size} MB."
 #~ msgstr ""
 #~ "{count} enregistrements plus anciens que {days} jours avec une gravité "
 #~ "maximale \"{severity}\" ont été supprimés. La table \"{table}\" a une "
@@ -2557,9 +2580,6 @@ msgstr "Nombre de secondes avant suppression automatique du verrou"
 #~ "%4$sjournaux%3$s)."
 
 #~ msgid "Bulk check"
-#~ msgstr "Vérifications"
-
-#~ msgid "Checks"
 #~ msgstr "Vérifications"
 
 #~ msgid "Processors"
